@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Demo</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 5vh;
+            padding: 10%;
+            overflow: hidden; /* Hides the text that scrolls off-screen */
+        }
+
+        .scrollable-text {
+            position: absolute;
+            white-space: nowrap; /* Prevents the text from wrapping to a new line */
+            animation: scrollText 100s linear infinite;
+        }
+
+        .blinking-text {
+            animation: blinkText 20s alternate infinite;
+        }
+
+        /* Defines the scrolling animation */
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%); /* Starts off-screen to the right */
+            }
+            100% {
+                transform: translateX(-100%); /* Ends off-screen to the left */
+            }
+        }
+
+        /* Defines the blinking animation */
+        @keyframes blinkText {
+            0%, 100% {
+                opacity: 1; /* Fully visible */
+            }
+            50% {
+                opacity: 0; /* Fully transparent */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    FRONT END WEB DEVELOPMENT CS1102-1 Lab Manual
+
+    <div class="scrollable-text">
+        This is a scrollable text that scrolls from left to right.
+    </div>
+    
+    <div class="blinking-text">
+        <p>This is a blinking text that blinks at regular intervals.</p>
+        <p>Show results in a different line.</p>
+    </div>
+
+</body>
+</html>

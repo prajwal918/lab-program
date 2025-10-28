@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Records Management</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.error {
+    color: red;
+}
+</style>
+</head>
+<body>
+    <h1>Student Records Management</h1>
+    <form id="studentForm">
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" required>
+        <br>
+        <br>
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" required>
+        <br>
+        <br>
+        <label for="studentAge">Student Age:</label>
+        <input type="number" id="studentAge" required>
+        <br>
+        <br>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <h2>Student Records</h2>
+    <div id="error" class="error"></div>
+    <ul id="studentList"></ul>
+
+    <script>
+        const studentForm = document.getElementById('studentForm');
+        const studentList = document.getElementById('studentList');
+        const errorDiv = document.getElementById('error');
+        const students = [];
+
+        studentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const studentId = document.getElementById('studentId').value;
+            const studentName = document.getElementById('studentName').value;
+            const studentAge = document.getElementById('studentAge').value;
+
+            try {
+                addStudent(studentId, studentName, studentAge);
+                displayStudents();
+                errorDiv.textContent = '';
+            } catch (error) {
+                errorDiv.textContent = error.message;
+            }
+
+            studentForm.reset();
+        });
+
+        function addStudent(id, name, age) {
+            if (!id || !name || !age) {
+                throw new Error('All fields are required.');
+            }
+
+            if (isNaN(age) || age <= 0) {
+                throw new Error('Age must be a positive number.');
+            }
+
+            const studentExists = students.some(student => student.id === id);
+
+            if (studentExists) {
+                throw new Error('Student ID already exists.');
+            }
+
+            const student = {
+                id,
+                name,
+                age: parseInt(age, 10)
+            };
+
+            students.push(student);
+        }
+
+        function displayStudents() {
+            studentList.innerHTML = '';
+
+            students.forEach(student => {
+                const li = document.createElement('li');
+                li.textContent = `ID: ${student.id}, Name: ${student.name}, Age: ${student.age}`;
+                studentList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
+

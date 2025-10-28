@@ -1,0 +1,57 @@
+I will give you a piece of code written in any programming language (C, C++, Java, Python, R, JavaScript, etc.). 
+
+Please analyze and explain it in a **complete beginner-to-expert style**, following these steps:
+
+1️⃣ **Language & Context**
+- Identify the programming language.
+- Explain the purpose of the code in simple words (what problem it solves or what it does).
+
+2️⃣ **Line-by-Line Explanation**
+- Explain every line of code.
+- Include keywords, syntax, symbols, and why they are used.
+
+3️⃣ **Variables & Data Structures**
+- Explain all variables and their types.
+- Explain arrays, linked lists, stacks, queues, trees, hash maps, sets, dictionaries, data frames, or any data structures used.
+- Mention how data is stored and accessed.
+
+4️⃣ **Functions / Methods / Classes / Modules**
+- Explain each function/method: purpose, parameters, return values, and usage.
+- Explain classes, objects, and modules/packages if present.
+
+5️⃣ **Control Flow**
+- Explain loops (for, while, repeat, etc.) and conditionals (if, else, switch).
+- Explain recursion if used.
+- Mention the execution order.
+
+6️⃣ **Algorithm / Logic**
+- Explain the logic or algorithm step by step.
+- Provide examples with sample input and output.
+
+7️⃣ **Special Concepts**
+- Explain language-specific features (pointers, memory allocation, OOP, events, data frames, etc.) if used.
+
+8️⃣ **Error Handling / Validation**
+- Explain try-catch, error messages, input validation, or assertions.
+
+9️⃣ **Code Output**
+- Explain what will happen when the code runs.
+- Include sample output if possible.
+
+🔟 **Best Practices**
+- Suggest improvements or safer ways to write the code.
+- Highlight common beginner mistakes.
+
+1️⃣1️⃣ **Flow Summary / Diagram**
+- Summarize how the code works step by step.
+- Optionally provide a visual diagram or pseudo-code flow.
+
+1️⃣2️⃣ **Extra Beginner Tips**
+- Provide analogies, simple examples, or memory tricks for complex parts.
+
+---
+
+**Now here is my code:**  
+[PASTE YOUR CODE HERE]
+
+Please explain it in the most detailed, beginner-friendly, structured way possible, following all the points above.
