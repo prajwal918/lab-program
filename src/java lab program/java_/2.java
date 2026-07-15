@@ -5,6 +5,7 @@ import java.util.*;
 public class guessMyNumber {
 
     public static void main(String[] args) {
+        try {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
 
@@ -16,7 +17,11 @@ public class guessMyNumber {
             if (myguess == number) {
                 System.out.println("Your guess no: " + myguess + " is correct:");
                 break;
-            }
+        } catch (Exception e) {
+            System.err.println("Error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+                }
             if (myguess < number) {
                 System.out.println("my guess is " + myguess + " is lower");
             } else {

@@ -52,6 +52,7 @@ class Stack {
  */
 public class stackdemo {
     public static void main(String[] args) {
+        try {
         Scanner sc = new Scanner(System.in);
         Stack S = new Stack();
         
@@ -62,7 +63,11 @@ public class stackdemo {
         for (int i = 0; i < size; i++) {
             int ele = sc.nextInt();
             S.push(ele);
+        } catch (Exception e) {
+            System.err.println("Error occurred: " + e.getMessage());
+            e.printStackTrace();
         }
+            }
         
         System.out.println("\n--- Stack Operations ---");
         S.pop();

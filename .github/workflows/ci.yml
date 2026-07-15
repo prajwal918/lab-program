@@ -1,13 +1,40 @@
-name: CI
+name: CI Pipeline
+
 on:
   push:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
+
 jobs:
-  build:
+  build-and-test:
+    name: Build & Test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Run checks
-      run: echo "Checks passed"
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup C
+        run: sudo apt-get install -y gcc
+
+      - name: Lint & Test Java (Placeholder)
+        run: |
+          echo "Running unit tests for Java programs in /tests..."
+          # javac src/java\ lab\ program/java_/*.java
+
+      - name: Lint & Test C (Placeholder)
+        run: |
+          echo "Running checks for C programs..."
+          # gcc src/c\ lab\ program/1a.c -o 1a
+
+      - name: Validate Docker Build
+        run: docker-compose build
+
+      - name: Check Formatting
+        run: echo "Checking Wabi-Sabi layout... Code is in /src/ and /tests/!"

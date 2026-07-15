@@ -94,6 +94,7 @@ class Contract extends Staff {
  */
 public class StaffDemo {
     public static void main(String[] args) {
+        try {
         System.out.println("--- Enter details for Technical Staff ---");
         Technical T1 = new Technical();
         T1.readData();
@@ -110,5 +111,9 @@ public class StaffDemo {
         T1.displayData();
         T2.displayData();
         C1.displayData();
-    }
+        } catch (Exception e) {
+            System.err.println("Error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+        }
 }

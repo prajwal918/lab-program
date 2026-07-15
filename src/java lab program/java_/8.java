@@ -53,6 +53,7 @@ class Student implements Resume {
 // The main class to demonstrate the program
 public class ResumeDemo {
     public static void main(String[] args) {
+        try {
         teacher t = new teacher();
         t.readdata();
         t.biodata();
@@ -60,5 +61,9 @@ public class ResumeDemo {
         Student s = new Student();
         s.readdata();
         s.biodata();
-    }
+        } catch (Exception e) {
+            System.err.println("Error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+        }
 }

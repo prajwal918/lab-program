@@ -38,6 +38,7 @@ class Account {
 
 public class Demo {
     public static void main(String[] args) {
+        try {
         Account c1 = new Account(46545, "PRAJWAL JOGI", 4658);
 
         c1.deposit(665);
@@ -48,5 +49,9 @@ public class Demo {
 
         System.out.println();
         c1.displayInfo();
-    }
+        } catch (Exception e) {
+            System.err.println("Error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+        }
 }
