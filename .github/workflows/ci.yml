@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI
 
 on:
   push:
@@ -7,41 +7,17 @@ on:
     branches: [ "main", "master" ]
 
 jobs:
-  build-and-test:
-    name: Build & Test
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        continue-on-error: true
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-      - name: Setup Java
-        continue-on-error: true
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+    - uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
 
-      - name: Setup C
-        continue-on-error: true
-        run: sudo apt-get install -y gcc
+    - name: Install linter
+      run: pip install flake8
 
-      - name: Lint & Test Java (Placeholder)
-        continue-on-error: true
-        run: |
-          echo "Running unit tests for Java programs in /tests..."
-          # javac src/java\ lab\ program/java_/*.java
-
-      - name: Lint & Test C (Placeholder)
-        continue-on-error: true
-        run: |
-          echo "Running checks for C programs..."
-          # gcc src/c\ lab\ program/1a.c -o 1a
-
-      - name: Validate Docker Build
-        continue-on-error: true
-        run: docker-compose build || true
-
-      - name: Check Formatting
-        continue-on-error: true
-        run: echo "Checking Wabi-Sabi layout... Code is in /src/ and /tests/!"
+    - name: Syntax check
+      run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.git,__pycache__,venv,.venv
