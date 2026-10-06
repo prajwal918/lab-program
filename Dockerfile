@@ -8,6 +8,7 @@ FROM nginx:1.25-alpine
 LABEL maintainer="engineering-team"
 LABEL version="1.0"
 LABEL description="Lab Program Web Server with Enterprise Standards"
+LABEL security.hardened="true"
 
 # Remove default nginx static assets
 RUN rm -rf /usr/share/nginx/html/*
